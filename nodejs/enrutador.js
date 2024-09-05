@@ -20,12 +20,13 @@ module.exports = {
        put:(data,callback) =>{
         if(typeof data.indice !=='undefined'){
             if (global.recursos.mascotas[data.indice]){
+                global.recursos.mascotas[data.indice]=data.paylod;
                 return callback(200,global.recursos.mascotas[data.indice]);
             } 
             return callback(404,{
                 mensaje:`mascota con indice ${data.indice} no encontrado`});
         }
-        callback(400, {mensaje: "indice no enciado"});    
+        callback(400, {mensaje: "indice no enviado"});    
         }, 
     },
     noEncontrado: (data, callback) => {
