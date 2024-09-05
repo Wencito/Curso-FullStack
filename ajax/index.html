@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+        }
+        button.eliminar{
+            background-color: red;
+        }
+        button.editar{
+            background-color: yellowgreen;
+        }
+        button[type=reset]{
+            background-color: #ccc;
+            border: 1px solid black;
+            color: black;
+        }
+        button.ver{
+            background-color: yellow;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1><center>Primera app usando AJAX</center></h1>
+    <div class="container">
+        <form>
+            <input type="hidden" name="indice" id="indice">
+            <label for="nombre"></label> 
+            <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre"required/>
+            <label for="apellido">Apellido </label>
+            <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido"required/>
+            <label for="pais">pais</label>
+            <select id="pais" name="pais" required>
+                <option selected disable hidden>selecciones</option>
+                <option>Argentina</option>
+                <option>Brasil</option>
+                <option>Chile</option>
+                <option>Colombia</option>    
+            </select>
+            <button type="submit" id="boton">Crear</button>
+            <button type="reset" id="limpiar">Limpiar</button>
+
+        </form>
+       <center> <table>
+            <thead>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Pais</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody id="body-usuarios"></tbody>
+            
+        </table>
+    </center>
+    
+    
+    </div>
+    <script src="ejemplo-fetch.js"></script>
+</body>
+</html>

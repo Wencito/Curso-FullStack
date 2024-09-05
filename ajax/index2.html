@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+        }
+        button.eliminar{
+            background-color: red;
+        }
+        button.editar{
+            background-color: yellowgreen;
+        }
+        button[type=reset]{
+            background-color: #ccc;
+            border: 1px solid black;
+            color: black;
+        }
+        .Campo-Usuario{
+          background-color: palevioletred;  
+          font-weight: bolder;
+          width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1><center>Primera app usando AJAX</center></h1>
+    <div class="container">
+        
+       <center> <table>
+          
+            <tbody id="body-usuario"></tbody>
+            
+        </table>
+    </center>
+    
+    </div>
+    <script src="cargar-usuario.js"></script>
+</body>
+</html>
