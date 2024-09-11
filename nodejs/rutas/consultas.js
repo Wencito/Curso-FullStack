@@ -51,4 +51,3 @@ module.exports= function consultasHandler(consultas){
     }
     
 
-    //120 minuto: 14:35

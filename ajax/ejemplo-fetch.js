@@ -64,21 +64,24 @@ function enviarDatos(e){
         }else{
             return;
         }
-    fetch(url,{
-        method: method, 
-        headers:{
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(datos),
-    })
-    .then((response)=>response.json())
-    .then(respuestaJson=>{
-        console.log('respuestaJson',respuestaJson)
-        refrescar();
-        render();
-    })   
+        fetch(url, {
+            method,
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(datos),
+          })
+          .then((response) => response.json())
+          .then(respuestaJson=>{
+            console.log('respuestaJson', respuestaJson)
+            refrescar();
+            restaurarBoton();
+          }).catch((razon)=>{
+            console.log(razon);
+            restaurarBoton();
+          })
+      }
 
-}
 function eliminarUnUsuario(e){
     e.preventDefault();
     console.log('Eliminar usuario', e)
