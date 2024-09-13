@@ -5,6 +5,8 @@ const historia = document.getElementById("historia");
 const diagnostico = document.getElementById("diagnostico");
 const indice = document.getElementById("indice");
 const btnGuardar = document.getElementById("btn-guardar");
+//console.log({mascota, veterinaria, historia, diagnostico});
+
 const url = "http://localhost:5000";
 
 let consultas = [];
@@ -30,7 +32,6 @@ async function listarConsultas() {
           <td>${consulta.diagnostico}</td>
           <td>${consulta.fechaCreacion}</td>
           <td>${consulta.fechaEdicion}</td>
-          
           <td>
               <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-info editar" data-toggle="modal" data-target="#exampleModalCenter" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -120,8 +121,8 @@ async function enviarDatos(evento) {
       historia: historia.value,
       diagnostico: diagnostico.value,
     };
-    if(validar(datos)===true){
-        const accion = btnGuardar.innerHTML;
+    if (validar(datos) === true) {
+      const accion = btnGuardar.innerHTML;
       let urlEnvio = `${url}/${entidad}`;
       let method = "POST";
       if (accion === "Editar") {
@@ -140,32 +141,30 @@ async function enviarDatos(evento) {
         listarConsultas();
         resetModal();
       }
-    return;
-    } 
-    $(".alert-danger").show();
+      formulario.classList.add("was-validated");
+      return;
+    }
+    $(".alert-warning").show();
   } catch (error) {
     console.log({ error });
     $(".alert-danger").show();
   }
 }
 
+
 function resetModal (){
-    mascota.value = '';
-    veterinaria.value = '';
-    historia.value = '';
-    diagnostico.value = '';
-    indice.value = '';
-    btnGuardar.innerHTML = 'Crear';
+  btnGuardar.innerHTML = 'Crear';
+  [indice,mascota,veterinaria,historia,diagnostico].forEach((imputActual)=>{
+    imputActual.value = "";
+    imputActual.classList.remove("is-invalid");
+    imputActual.classList.remove("is-valid");
+
+  }
+);
+    $(".alert-warning").hide();
     $("#exampleModalCenter").modal("toggle");
 }
 
-function validar(datos){
-    if(typeof datos !== 'object') return false;
-    for(let llave in datos){
-        if(datos[llave].length === 0) return false;
-    }
-    return true;
-}
 
 btnGuardar.onclick = enviarDatos;
 
