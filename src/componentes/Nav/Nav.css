@@ -1,0 +1,91 @@
+/* Variables CSS */
+:root {
+  --primary-color: #007bff;
+  --dark-color: #343a40;
+  --white-color: #fff;
+  --nav-height: 55px;
+}
+
+/* Estilos generales */
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 5px;
+  color: var(--white-color);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* Estilos para navbar-dark */
+.navbar-dark {
+  background-color: var(--dark-color) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link {
+  color: var(--white-color);
+}
+
+/* Estilos para navbar-right */
+.navbar-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 700px;
+}
+
+.navbar-right .nav-item {
+  box-sizing: border-box;
+  height: var(--nav-height);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  padding-bottom: 9px;
+}
+
+/* Media query */
+@media (min-width: 992px) {
+  .navbar-expand-lg {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .navbar-expand-lg .navbar-nav {
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
